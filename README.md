@@ -4,5 +4,6 @@
 
 1. `git clone https://github.com/feliepep/movie-seats-simulator`.
 2. `cd movie-seats-simulator`.
-3. `pip install .`
-4. `mss`
+3. `pip3 install -r requirements.txt`
+4. `pip3 install .`
+5. `mss`
