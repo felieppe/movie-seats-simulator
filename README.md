@@ -7,3 +7,9 @@
 3. `pip3 install -r requirements.txt`
 4. `pip3 install .`
 5. `mss`
+
+### If not works:
+
+1. `cd movie-seats-simulator`
+2. `cd ./src`
+3. `python main.py`
