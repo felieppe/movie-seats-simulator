@@ -1,5 +1,5 @@
-from utils.api import API
-from utils.client import Client
+from src.utils.api import API
+from src.utils.client import Client
 
 import threading
 import time

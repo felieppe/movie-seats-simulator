@@ -1,7 +1,7 @@
 import random
 import time
 
-from utils.api import API
+from src.utils.api import API
 
 class Client:
     def __init__(self, id, semaphore):
