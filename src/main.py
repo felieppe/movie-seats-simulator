@@ -1,4 +1,3 @@
-from src.utils.api import API
 from src.utils.client import Client
 
 import threading
