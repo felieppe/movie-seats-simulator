@@ -32,7 +32,7 @@ class Client:
 
     def run(self):
         while(True):
-            seat = self.choose_random_seat(80)
+            seat = self.choose_random_seat(84)
             print(f"Client {self.id} randomly chose seat {seat}.")
             if self.reserve_seat(seat):
                 print(f"Client {self.id} reserved seat {seat}.")
