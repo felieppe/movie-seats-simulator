@@ -39,19 +39,24 @@ class Client:
 
     def run(self):
         while(True):
-            seat = self.choose_random_seat(84)
-            print(f"Client {self.id} randomly chose seat {seat}.")
-            if self.reserve_seat(seat):
-                print(f"Client {self.id} reserved seat {seat}.")
-                if self.buy_seat_rng(seat):
-                    print(f"Client {self.id} bought seat {seat}.")
-                    self.semaphore.release()
+            try:
+                seat = self.choose_random_seat(84)
+                print(f"Client {self.id} randomly chose seat {seat}.")
+                if self.reserve_seat(seat):
+                    print(f"Client {self.id} reserved seat {seat}.")
+                    if self.buy_seat_rng(seat):
+                        print(f"Client {self.id} bought seat {seat}.")
+                        self.semaphore.release()
+                    else:
+                        print(f"Client {self.id} failed to buy seat {seat}.")
+                        self.semaphore.release()
                 else:
-                    print(f"Client {self.id} failed to buy seat {seat}.")
-                    self.semaphore.release()
-            else:
-                print(f"Client {self.id} failed to reserve seat {seat}.")
+                    print(f"Client {self.id} failed to reserve seat {seat}.")
 
-                self.semaphore.release()
-                time.sleep(random.uniform(1, 5))
+                    self.semaphore.release()
+                    time.sleep(random.uniform(1, 5))
+            except (KeyboardInterrupt): 
+                print(f"Client {self.id} exited."); break
+            except: 
+                print(f"Client {self.id} encountered an error."); break
     
