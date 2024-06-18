@@ -8,9 +8,16 @@ class Client:
         self.id = id
         self.semaphore = semaphore
         self.api = api = API("http://localhost:3000", {"Content-Type": "application/json"})
+        self.seats_memory = []
 
     def choose_random_seat(self, max):
-        return random.randint(1, max)
+        rnd = None
+        while rnd == None:
+            if rnd not in self.seats_memory:
+                rnd = random.randint(1, max)
+                self.seats_memory.append(rnd)
+
+        return rnd
 
     def reserve_seat(self, seat):
         self.semaphore.acquire()
