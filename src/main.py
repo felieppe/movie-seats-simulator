@@ -10,7 +10,11 @@ def main():
 
     for i in range(1, 11):
         client = Client(i, semaphore)
-        threading.Thread(target=client.run).start()
+        thread = threading.Thread(target=client.run)
+
+        thread.daemon = True
+        thread.start()
+        
         time.sleep(1)
 
 if __name__ == "__main__":
