@@ -7,7 +7,7 @@ class Client:
     def __init__(self, id, semaphore):
         self.id = id
         self.semaphore = semaphore
-        self.api = api = API("http://localhost:3000", {"Content-Type": "application/json"})
+        self.api = API("http://localhost:3000", {"Content-Type": "application/json"})
         self.seats_memory = []
 
     def choose_random_seat(self, max):
