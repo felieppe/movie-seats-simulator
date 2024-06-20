@@ -11,7 +11,7 @@ def main():
         client = Client(i, semaphore)
         thread = threading.Thread(target=client.run)
 
-        thread.daemon = True
+        thread.daemon = False
         thread.start()
         
         time.sleep(1)
